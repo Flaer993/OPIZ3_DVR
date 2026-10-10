@@ -1,0 +1,16 @@
+[Unit]
+Description=Orange Pi camera/NAS status dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/opiz-dashboard
+ExecStart=/opt/opiz-dashboard/.venv/bin/python -m opiz_dashboard.main --config /etc/opiz-dashboard/config.json
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+

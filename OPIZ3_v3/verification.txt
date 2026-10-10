@@ -1,0 +1,55 @@
+01_base_modified.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+02_cover_original.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+03_disk_cage.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+04_drive_tray.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+05_display_panel.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+07_button_carrier.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+08_button_cap.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+09_display_rear_cover.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+REF_drive_9_5.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+REF_SATA_USB_corridor.SLDPRT open=0 warnings=128
+  feature errors=0
+  save=0 warnings=0
+REF_TFT_exact.SLDPRT open=0 warnings=128
+  feature errors=0
+  imported reference preserved unchanged
+Assembly components=17
+04_drive_tray-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,035,1,0,0,0
+REF_drive_9_5-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,037,1,0,0,0
+07_button_carrier-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+08_button_cap-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+09_display_rear_cover-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+REF_TFT_exact-1 transform=0,0,258819045102521,0,965925826289068,-1,0,0,0,-0,965925826289068,0,258819045102521,0,-0,0502980022829318,0,0826173857708908,1,0,0,0
+05_display_panel-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+REF_SATA_USB_corridor-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,015,1,0,0,0
+REF_SATA_USB_corridor-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0
+REF_SATA_USB_corridor-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,03,1,0,0,0
+04_drive_tray-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,005,1,0,0,0
+REF_drive_9_5-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,007,1,0,0,0
+04_drive_tray-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,02,1,0,0,0
+REF_drive_9_5-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,022,1,0,0,0
+01_base_modified-1 transform=1,0,0,0,1,0,0,0,1,0,0,01,0,0577,1,0,0,0
+03_disk_cage-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0
+02_cover_original-1 transform=1,0,0,0,1,0,0,0,1,0,0,01,0,0577,1,0,0,0
+TFT actual STEP hole axes=4 max_offset_mm=2,5724394843075E-09
+Tilt lock hole axes=6 max_offset_mm=0
+Interference count=0
+Preview=0

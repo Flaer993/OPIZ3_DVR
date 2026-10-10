@@ -1,0 +1,53 @@
+{
+  "display": {
+    "backend": "simulator",
+    "controller": "st7735",
+    "width": 128,
+    "height": 160,
+    "rotation": 0,
+    "spi_bus": 1,
+    "spi_device": 0,
+    "spi_hz": 32000000,
+    "gpio_chip": "/dev/gpiochip0",
+    "dc_line": 0,
+    "reset_line": 0,
+    "backlight_line": null,
+    "x_offset": 0,
+    "y_offset": 0,
+    "bgr": true,
+    "invert": true
+  },
+  "button": {
+    "enabled": false,
+    "gpio_chip": "/dev/gpiochip0",
+    "line": 0,
+    "active_low": true,
+    "debounce_ms": 80,
+    "long_press_ms": 800
+  },
+  "refresh_seconds": 1.0,
+  "network_interface": null,
+  "server": {
+    "url": "http://192.168.1.10:8080/health",
+    "ip_address": "192.168.1.10",
+    "timeout_seconds": 0.7,
+    "status_file": "/var/lib/camera-uploader/status.json"
+  },
+  "storage": {
+    "raid_type": "auto",
+    "devices": [
+      {"name": "HDD 1", "device": "/dev/sda", "mount": "/mnt/storage1"},
+      {"name": "HDD 2", "device": "/dev/sdb", "mount": "/mnt/storage2"}
+    ]
+  },
+  "cameras": [
+    {"name": "CAM 1", "url": "rtsp://192.168.1.101:554/stream1", "status_file": "/run/cameras/cam1.json"},
+    {"name": "CAM 2", "url": "rtsp://192.168.1.102:554/stream1", "status_file": "/run/cameras/cam2.json"},
+    {"name": "CAM 3", "url": "rtsp://192.168.1.103:554/stream1", "status_file": "/run/cameras/cam3.json"},
+    {"name": "CAM 4", "url": "rtsp://192.168.1.104:554/stream1", "status_file": "/run/cameras/cam4.json"}
+  ],
+  "media": {
+    "path": "assets/visual.png",
+    "frame_ms": 80
+  }
+}

@@ -1,0 +1,4 @@
+Clear dangling relations Эскиз9=True
+Saved 05_display_panel warnings=0
+Solids 1
+BBox -0,046,-0,067,0,046,0,046,-0,046,0,12

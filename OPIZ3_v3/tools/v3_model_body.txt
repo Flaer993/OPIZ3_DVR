@@ -1,0 +1,33 @@
+ public static void Run(string dir){root=dir;output=Path.Combine(root,"OPIZ3_v3");Directory.CreateDirectory(output);log=new StreamWriter(Path.Combine(output,"build_log.txt"),false);try{
+ sw=(SldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application.32"));sw.Visible=true;math=(MathUtility)sw.GetMathUtility();int e=0,w=0,ae=0;
+ var docs=sw.GetDocuments() as object[];if(docs!=null)foreach(ModelDoc2 doc in docs)if(doc.GetPathName().StartsWith(output,StringComparison.OrdinalIgnoreCase))sw.CloseDoc(doc.GetTitle());
+ m=(ModelDoc2)sw.OpenDoc6(Path.Combine(output,"03_disk_cage.SLDPRT"),1,1,"",ref e,ref w);sw.ActivateDoc3(m.GetTitle(),false,0,ref ae);seq=100;
+ for(int k=0;k<3;k++)CutRect(1,46,-36,5.5+15*k,36,18.5+15*k,7,"Rear_SATA_USB_passage_"+k);
+ Box(43,-54,44,50.6,-45,52,"Right_hinge_foot");Box(-50.6,-54,44,-43,-45,52,"Left_hinge_foot");
+ Box(46.6,-65,43,50.6,-45,62,"Right_angle_bracket");Box(-50.6,-65,43,-46.6,-45,62,"Left_angle_bracket");
+ double ang=-15*Math.PI/180;double ca=Math.Cos(ang),sa=Math.Sin(ang);
+ Holes(2,-52,new double[][]{new double[]{-60,49.5},new double[]{-60-sa*8.5,49.5+ca*8.5}},1.7,104,"M3_fixed_15deg_hinge");Save("03_disk_cage",true);
+ New("TFT screw panel 15 degree");Box(-46,-67,55,46,-64,103,"Front_panel");CutRect(1,-68,-20.3,63.2,22.3,95.8,5,"STEP_LCD_window_42_6x32_6");Holes(1,-68,new double[][]{new double[]{38,77}},3.3,5,"Button_bore");
+ // Four front-side PCB supports: imported STEP holes are x=+/-26 and PCB-y=+/-14.25.
+ var st=Start(1,-64);foreach(double xx in new double[]{-26,26})foreach(double zz in new double[]{65.25,93.75})Circle(st,1,-64,xx,zz,2.6);End(st,1,3.2,false,"Four_M3_PCB_standoffs");
+ Holes(1,-68,new double[][]{new double[]{-26,65.25},new double[]{26,65.25},new double[]{-26,93.75},new double[]{26,93.75}},1.3,9,"M3_PCB_mount_pilots_52x28_5");
+ Box(-46,-64,55,-44,-46,103,"Housing_left");Box(44,-64,55,46,-46,103,"Housing_right");Box(-44,-64,55,44,-46,57,"Housing_bottom");Box(-44,-64,101,44,-46,103,"Housing_top");
+ Box(-44,-51,55.5,-38,-46,60.5,"Cover_post_LB");Box(38,-51,55.5,44,-46,60.5,"Cover_post_RB");Box(-44,-51,95.5,-38,-46,100.5,"Cover_post_LT");Box(38,-51,95.5,44,-46,100.5,"Cover_post_RT");
+ Holes(1,-52,new double[][]{new double[]{-41,58},new double[]{41,58},new double[]{-41,98},new double[]{41,98}},1.3,8,"Rear_cover_M3_pilots");
+ Box(34,-64,68,43,-56,70,"Button_lower_shelf");Box(34,-64,84,43,-56,86,"Button_upper_shelf");Holes(1,-65,new double[][]{new double[]{36,69},new double[]{41,85}},1.05,10,"Button_carrier_M2_pilots");
+ Box(43.3,-67,46,46.3,-56,61,"Right_tilt_ear");Box(-46.3,-67,46,-43.3,-56,61,"Left_tilt_ear");
+ Holes(2,-47,new double[][]{new double[]{-60,49.5},new double[]{-60,58}},1.7,94,"M3_hinge_and_angle_lock");
+ Save("05_display_panel",true);
+ New("TFT rear cover");Box(-46,-46,55,46,-44,103,"Rear_cover_2mm");Holes(1,-47,new double[][]{new double[]{-41,58},new double[]{41,58},new double[]{-41,98},new double[]{41,98}},1.7,4,"Rear_cover_M3_clearance");CutRect(1,-47,-7,58,7,64,4,"Display_wire_exit_14x6");Save("09_display_rear_cover",true);
+ BuildAssembly();
+ }finally{log.Close();}}
+ static Component2 Add(AssemblyDoc a,string name,MathTransform tr){string path=Path.Combine(output,name+".SLDPRT");int e=0,w=0;sw.OpenDoc6(path,1,1,"",ref e,ref w);int ae=0;sw.ActivateDoc3(m.GetTitle(),false,0,ref ae);var comp=a.AddComponent5(path,0,"",false,"",0,0,0);if(comp==null)throw new Exception("Insert "+name);m.ClearSelection2(true);comp.Select4(false,null,false);a.UnfixComponent();comp.Transform2=tr;m.ClearSelection2(true);comp.Select4(false,null,false);a.FixComponent();Say("Component "+comp.Name2+" transform="+String.Join(",",(double[])comp.Transform2.ArrayData));return comp;}
+ static MathTransform Move(double x,double y,double z){return (MathTransform)math.CreateTransform(new double[]{1,0,0,0,1,0,0,0,1,U(x),U(y),U(z),1,0,0,0});}
+ static MathTransform Tilt(){double a=-15*Math.PI/180,c=Math.Cos(a),s=Math.Sin(a),py=-60,pz=49.5;double ty=py-c*py+s*pz,tz=pz-s*py-c*pz;return (MathTransform)math.CreateTransform(new double[]{1,0,0,0,c,s,0,-s,c,0,U(ty),U(tz),1,0,0,0});}
+ static void BuildAssembly(){string t="C:\\ProgramData\\SOLIDWORKS\\SOLIDWORKS 2024\\templates\\gost-assy.asmdot";m=(ModelDoc2)sw.NewDocument(t,0,0,0);int e=0,w=0;m.Extension.SaveAs(Path.Combine(output,"OPIZ3_assembly.SLDASM"),0,1,null,ref e,ref w);var a=(AssemblyDoc)m;
+ Add(a,"03_disk_cage",Move(0,0,0));Add(a,"01_base_modified",Move(0,10,57.7));Add(a,"02_cover_original",Move(0,10,57.7));for(int k=0;k<3;k++){Add(a,"04_drive_tray",Move(0,0,5+15*k));Add(a,"REF_drive_9_5",Move(0,0,7+15*k));}
+ var tilt=Tilt();Add(a,"05_display_panel",tilt);Add(a,"09_display_rear_cover",tilt);Add(a,"07_button_carrier",tilt);Add(a,"08_button_cap",tilt);
+ // Original STEP XY PCB becomes vertical XZ, positive STEP Z faces the front (-Y).
+ var local=(MathTransform)math.CreateTransform(new double[]{1,0,0,0,0,1,0,-1,0,0,U(-59.2),U(79.5),1,0,0,0});Add(a,"REF_TFT_exact",(MathTransform)local.Multiply(tilt));m.ForceRebuild3(false);m.Save3(1,ref e,ref w);Say("Assembly save errors="+e+" warnings="+w);if(e!=0)throw new Exception("Assembly save");
+ }
+}

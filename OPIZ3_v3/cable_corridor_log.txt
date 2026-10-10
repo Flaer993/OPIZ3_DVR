@@ -1,0 +1,8 @@
+PART SATA USB insertion corridor
+Saved REF_SATA_USB_corridor warnings=0
+Solids 1
+BBox -0,03,0,042,0,006,0,03,0,1,0,018
+Component REF_SATA_USB_corridor-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0
+Component REF_SATA_USB_corridor-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,015,1,0,0,0
+Component REF_SATA_USB_corridor-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,03,1,0,0,0
+Assembly corridors save=0 warnings=0

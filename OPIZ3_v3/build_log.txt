@@ -1,0 +1,27 @@
+Open cage 0 warnings=0
+Saved 03_disk_cage warnings=0
+Solids 1
+BBox -0,0506,-0,065,0,0,0506,0,064,0,062
+PART TFT screw panel 15 degree
+Saved 05_display_panel warnings=0
+Solids 1
+BBox -0,046,-0,067,0,046,0,046,-0,046,0,12
+PART TFT rear cover
+Saved 09_display_rear_cover warnings=0
+Solids 1
+BBox -0,046,-0,046,0,055,0,046,-0,044,0,12
+Component 03_disk_cage-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0
+Component 01_base_modified-1 transform=1,0,0,0,1,0,0,0,1,0,0,01,0,0577,1,0,0,0
+Component 02_cover_original-1 transform=1,0,0,0,1,0,0,0,1,0,0,01,0,0577,1,0,0,0
+Component 04_drive_tray-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,005,1,0,0,0
+Component REF_drive_9_5-1 transform=1,0,0,0,1,0,0,0,1,0,0,0,007,1,0,0,0
+Component 04_drive_tray-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,02,1,0,0,0
+Component REF_drive_9_5-2 transform=1,0,0,0,1,0,0,0,1,0,0,0,022,1,0,0,0
+Component 04_drive_tray-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,035,1,0,0,0
+Component REF_drive_9_5-3 transform=1,0,0,0,1,0,0,0,1,0,0,0,037,1,0,0,0
+Component 05_display_panel-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+Component 09_display_rear_cover-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+Component 07_button_carrier-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+Component 08_button_cap-1 transform=1,0,0,0,0,965925826289068,-0,258819045102521,0,0,258819045102521,0,965925826289068,0,-0,0148559931552307,-0,0138424711074601,1,0,0,0
+Component REF_TFT_exact-1 transform=0,0,258819045102521,0,965925826289068,-1,0,0,0,-0,965925826289068,0,258819045102521,0,-0,0502980022829318,0,0826173857708908,1,0,0,0
+Assembly save errors=0 warnings=0

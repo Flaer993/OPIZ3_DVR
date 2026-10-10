@@ -1,0 +1,4 @@
+Shared tray edit placements=3
+Saved 04_drive_tray warnings=0
+Solids 1
+BBox -0,045,-0,07,0,0,045,0,044,0,0125
